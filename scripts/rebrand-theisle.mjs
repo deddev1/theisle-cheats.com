@@ -1,0 +1,200 @@
+/**
+ * Fortnite Cheats → The Isle Cheats rebrand for levoredirect clone.
+ * Run: node scripts/rebrand-theisle.mjs
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+
+const root = path.resolve('.');
+const TEXT_EXTS = new Set([
+  '.ts', '.tsx', '.astro', '.mjs', '.js', '.json', '.md', '.txt',
+  '.svg', '.html', '.webmanifest', '.css', '.toml',
+]);
+const SKIP_DIRS = new Set(['node_modules', '.git', 'dist', '.seo-baseline']);
+const SKIP_FILES = new Set([
+  'rebrand-fortnite.mjs', 'vocab-fortnite.mjs', 'rebrand-theisle.mjs',
+  'vocab-theisle.mjs', 'cleanup-theisle.mjs', 'fetch-fortnite-gameplay.mjs',
+  'import-user-gameplay.mjs', 'make-favicon-from-isle.mjs',
+]);
+
+const REPLACEMENTS = [
+  ['fortnite-cheats.com', 'theisle-cheats.com'],
+  ['FortniteCheats', 'TheIsleCheats'],
+  ['Fortnitecheats', 'Theislecheats'],
+  ['fortnitecheats', 'theislecheats'],
+
+  ['/products/fortnite-cheats', '/products/theisle-cheats'],
+  ['products/fortnite-cheats', 'products/theisle-cheats'],
+  ['https://zadeyo.com/products/fortnite', 'https://levocheats.com/go/QRH?to=%2Fthe-isle-novaxware-cheats'],
+  ['%2Fproducts%2Ffortnite', '%2Fthe-isle-novaxware-cheats'],
+  ['/products/fortnite', '/products/theisle'],
+  ['/go/fortnite/', '/go/theisle/'],
+  ['/go/fortnite', '/go/theisle'],
+
+  ["checkoutPath('fortnite')", "checkoutPath('theisle')"],
+  ['checkoutPath("fortnite")', 'checkoutPath("theisle")'],
+  ["product: 'fortnite'", "product: 'theisle'"],
+  ["'fortnite'", "'theisle'"],
+  ['"fortnite"', '"theisle"'],
+  ['  fortnite:', '  theisle:'],
+  ['fortnite:', 'theisle:'],
+
+  ['how-to-buy-fortnite-cheats-2026', 'how-to-buy-theisle-cheats-2026'],
+  ['how-to-use-fortnite-cheat-codes', 'theisle-practice-safely'],
+  ['fortnite-aimbot-combat-guide', 'theisle-bite-assist-combat'],
+  ['fortnite-console-commands-cheats', 'theisle-practice-vs-official'],
+  ['fortnite-cheat-codes-guide', 'theisle-practice-before-official'],
+  ['fortnite-console-cheats-tips', 'theisle-practice-bite-assist-esp'],
+  ['fortnite-cheats-features-guide', 'theisle-cheats-features-guide'],
+  ['fortnite-hwid-spoofer-after-ban', 'theisle-hwid-spoofer-after-ban'],
+  ['fortnite-external-cheat-guide', 'theisle-external-cheat-guide'],
+  ['fortnite-stream-proof-setup', 'theisle-stream-proof-setup'],
+  ['fortnite-aimbot-ranked-guide', 'theisle-bite-assist-official'],
+  ['fortnite-skin-changer-guide', 'theisle-appearance-changer-guide'],
+  ['fortnite-elite-tier-guide', 'theisle-elite-tier-guide'],
+  ['fortnite-esp-wallhack-setup', 'theisle-esp-wallhack-setup'],
+  ['fortnite-radar-hack-guide', 'theisle-radar-hack-guide'],
+  ['fortnite-lite-vs-pro', 'theisle-lite-vs-pro'],
+  ['eac-bypass-fortnite-guide', 'eac-bypass-theisle-guide'],
+  ['fortnite-auto-aim', 'theisle-auto-aim'],
+  ['fortnite-aimbot-combat', 'theisle-aimbot-combat'],
+  ['fortnite-skin-changer', 'theisle-skin-changer'],
+  ['fortnite-player-esp', 'theisle-player-esp'],
+  ['fortnite-esp-wallhack', 'theisle-esp-wallhack'],
+  ['fortnite-radar-hack', 'theisle-radar-hack'],
+  ['fortnite-loot-radar', 'theisle-loot-radar'],
+  ['fortnite-thermal-esp', 'theisle-thermal-esp'],
+  ['fortnite-build-fight-esp', 'theisle-territory-esp'],
+  ['fortnite-arena-wallhack', 'theisle-arena-wallhack'],
+  ['fortnite-spawn-island-esp', 'theisle-spawn-island-esp'],
+  ['fortnite-long-range-esp', 'theisle-long-range-esp'],
+  ['fortnite-aimbot-lock', 'theisle-aimbot-lock'],
+  ['fortnite-chams-esp', 'theisle-chams-esp'],
+  ['fortnite-squad-esp', 'theisle-squad-esp'],
+  ['fortnite-combat-esp', 'theisle-combat-esp'],
+  ['hero-fortnite-dark', 'hero-theisle-dark'],
+  ['fortnite-cheats', 'theisle-cheats'],
+
+  ['Fortnite Cheats & Hacks', 'The Isle Cheats & Hacks'],
+  ['Fortnite cheats & hacks', 'The Isle cheats & hacks'],
+  ['Fortnite Cheats', 'The Isle Cheats'],
+  ['Fortnite cheats', 'The Isle cheats'],
+  ['fortnite cheats', 'the isle cheats'],
+  ['Fortnite Elite', 'The Isle Elite'],
+  ['Fortnite online', 'The Isle online'],
+  ['Fortnite', 'The Isle'],
+  ['fortnite', 'theisle'],
+];
+
+const IMAGE_RENAMES = [
+  ['fortnite-auto-aim', 'theisle-auto-aim'],
+  ['fortnite-loot-radar', 'theisle-loot-radar'],
+  ['fortnite-player-esp', 'theisle-player-esp'],
+  ['fortnite-esp-wallhack', 'theisle-esp-wallhack'],
+  ['fortnite-aimbot-combat', 'theisle-aimbot-combat'],
+  ['fortnite-skin-changer', 'theisle-skin-changer'],
+  ['fortnite-radar-hack', 'theisle-radar-hack'],
+  ['fortnite-thermal-esp', 'theisle-thermal-esp'],
+  ['fortnite-build-fight-esp', 'theisle-territory-esp'],
+  ['fortnite-arena-wallhack', 'theisle-arena-wallhack'],
+  ['fortnite-spawn-island-esp', 'theisle-spawn-island-esp'],
+  ['fortnite-long-range-esp', 'theisle-long-range-esp'],
+  ['fortnite-aimbot-lock', 'theisle-aimbot-lock'],
+  ['fortnite-chams-esp', 'theisle-chams-esp'],
+  ['fortnite-squad-esp', 'theisle-squad-esp'],
+  ['fortnite-combat-esp', 'theisle-combat-esp'],
+  ['how-to-buy-fortnite-cheats-2026', 'how-to-buy-theisle-cheats-2026'],
+  ['how-to-use-fortnite-cheat-codes', 'theisle-practice-safely'],
+  ['fortnite-aimbot-combat-guide', 'theisle-bite-assist-combat'],
+  ['fortnite-cheat-codes-guide', 'theisle-practice-before-official'],
+  ['fortnite-cheats-features-guide', 'theisle-cheats-features-guide'],
+  ['fortnite-console-cheats-tips', 'theisle-practice-bite-assist-esp'],
+  ['fortnite-console-commands-cheats', 'theisle-practice-vs-official'],
+  ['fortnite-elite-tier-guide', 'theisle-elite-tier-guide'],
+  ['fortnite-external-cheat-guide', 'theisle-external-cheat-guide'],
+  ['fortnite-hwid-spoofer-after-ban', 'theisle-hwid-spoofer-after-ban'],
+  ['fortnite-lite-vs-pro', 'theisle-lite-vs-pro'],
+  ['fortnite-esp-wallhack-setup', 'theisle-esp-wallhack-setup'],
+  ['fortnite-aimbot-ranked-guide', 'theisle-bite-assist-official'],
+  ['fortnite-skin-changer-guide', 'theisle-appearance-changer-guide'],
+  ['fortnite-stream-proof-setup', 'theisle-stream-proof-setup'],
+  ['fortnite-radar-hack-guide', 'theisle-radar-hack-guide'],
+  ['eac-bypass-fortnite-guide', 'eac-bypass-theisle-guide'],
+  ['hero-fortnite-dark', 'hero-theisle-dark'],
+];
+
+function walk(dir, out = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (SKIP_DIRS.has(entry.name)) continue;
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walk(full, out);
+    else out.push(full);
+  }
+  return out;
+}
+
+function applyText(content) {
+  let next = content;
+  for (const [from, to] of REPLACEMENTS) {
+    if (next.includes(from)) next = next.split(from).join(to);
+  }
+  return next;
+}
+
+function renameImages() {
+  for (const dir of [
+    path.join(root, 'public', 'images'),
+    path.join(root, 'public', 'images', 'gameplay'),
+    path.join(root, 'public', 'images', 'blog'),
+  ]) {
+    if (!fs.existsSync(dir)) continue;
+    for (const name of fs.readdirSync(dir)) {
+      for (const [from, to] of IMAGE_RENAMES) {
+        if (name.startsWith(from)) {
+          const dest = name.replace(from, to);
+          const fromPath = path.join(dir, name);
+          const toPath = path.join(dir, dest);
+          if (fromPath !== toPath && !fs.existsSync(toPath)) {
+            fs.renameSync(fromPath, toPath);
+            console.log('rename image', name, '→', dest);
+          }
+          break;
+        }
+      }
+      if (name.includes('fortnite')) {
+        const dest = name.split('fortnite').join('theisle');
+        const fromPath = path.join(dir, name);
+        const toPath = path.join(dir, dest);
+        if (fromPath !== toPath && !fs.existsSync(toPath)) {
+          fs.renameSync(fromPath, toPath);
+          console.log('rename leftover', name, '→', dest);
+        }
+      }
+    }
+  }
+}
+
+function renameProductDir() {
+  const from = path.join(root, 'src', 'pages', 'products', 'fortnite-cheats');
+  const to = path.join(root, 'src', 'pages', 'products', 'theisle-cheats');
+  if (fs.existsSync(from) && !fs.existsSync(to)) {
+    fs.renameSync(from, to);
+    console.log('renamed product dir → theisle-cheats');
+  }
+}
+
+renameProductDir();
+renameImages();
+
+let changed = 0;
+for (const file of walk(root).filter((f) => TEXT_EXTS.has(path.extname(f).toLowerCase()))) {
+  if (SKIP_FILES.has(path.basename(file))) continue;
+  const before = fs.readFileSync(file, 'utf8');
+  const after = applyText(before);
+  if (after !== before) {
+    fs.writeFileSync(file, after);
+    changed++;
+    console.log('updated', path.relative(root, file));
+  }
+}
+console.log(`Rebrand done. Updated ${changed} text files.`);

@@ -29,13 +29,13 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-const elite = link('Fortnite Elite', productPath('elite'));
-const lite = link('Lite tier (ESP wallhack & ESP)', ROUTES.products);
-const pro = link('Pro tier (scripts included)', ROUTES.products);
-const productsHub = link('Fortnite products', ROUTES.products);
+const elite = link('The Isle Elite', productPath('elite'));
+const lite = link('Lite tier (ESP & radar)', productPath('lite'));
+const pro = link('Pro tier (bite assist included)', productPath('pro'));
+const productsHub = link('The Isle products', ROUTES.products);
 const hwid = link('HWID Spoofer', productPath('hwid-spoofer'));
 const ugc = link('UGC', productPath('ugc'));
-const skin = link('Skin Changer', productPath('unlock-all'));
+const skin = link('Appearance Changer', productPath('unlock-skins'));
 const faqPage = link('full FAQ', ROUTES.faq);
 const blog = link('blog guides', ROUTES.blog);
 
@@ -44,21 +44,21 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'status',
     topic: 'setup',
     icon: 'faqStatus',
-    q: 'Where do I check if Fortnite cheats are online?',
-    a: a('The live status banner is on fortnite-cheats.com and in the Discord #status channel. Always check after a Fortnite or EAC update.'),
+    q: 'Where do I check if The Isle cheats are online?',
+    a: a('The live status banner is on theisle-cheats.com and in the Discord #status channel. Always check after a The Isle or EAC update.'),
   },
   {
     id: 'after-buy',
     topic: 'setup',
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
-    a: a('Your portal unlocks the loader, setup guide and config library via our secure checkout. Follow the guide before launching Fortnite.'),
+    a: a('Your portal unlocks the loader, setup guide and config library via our secure checkout. Follow the guide before launching The Isle.'),
   },
   {
     id: 'ban-risk',
     topic: 'safety',
     icon: 'faqBanRisk',
-    q: 'Can I get banned using third-party fortnite cheats?',
+    q: 'Can I get banned using third-party the isle cheats?',
     a: a('Yes—any modification carries risk. EAC and report systems evolve. Read current status and accept the risk before use.'),
   },
   {
@@ -66,7 +66,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: a('Fortnite via Epic Games Launcher on Windows 10/11 64-bit only. macOS and Linux are not supported.'),
+    a: a('The Isle via Steam on Windows 10/11 64-bit only. macOS and Linux are not supported.'),
   },
   {
     id: 'license-move',
@@ -86,7 +86,7 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What is Fortnite ESP wallhack / ESP?',
+    q: 'What is The Isle ESP wallhack / ESP?',
     a: `ESP wallhack and player ESP show enemy positions, chests, loot and POI camps through storm circle. ${lite} covers awareness overlays. ${pro} and ${elite} add script modules on top.`,
     scopes: ['lite', 'pro', 'elite'],
   },
@@ -94,23 +94,23 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'esp-vs-scripts',
     topic: 'esp',
     icon: 'faqEspVsScripts',
-    q: 'What is the difference between ESP wallhack and aimbot?',
-    a: `ESP wallhack and ESP are information overlays—they do not cast abilities. Aimbot, Smooth Aim and Sticky Aim are aimbot on ${pro} and ${elite}. You can run awareness-only on ${lite}.`,
+    q: 'What is the difference between ESP wallhack and bite assist?',
+    a: `ESP wallhack and ESP are information overlays—they do not cast abilities. Bite Assist, Smooth Bite and Sticky Target are bite assist on ${pro} and ${elite}. You can run awareness-only on ${lite}.`,
   },
   {
     id: 'which-tier-esp',
     topic: 'plans',
     icon: 'faqWhichTierEsp',
     q: 'Which tier do I need for ESP wallhack only?',
-    a: `${lite} is awareness only: player ESP, chest locator, loot timers and radar hack. ${pro} adds aimbot. ${elite} adds bots, kill steal and Skin Changer.`,
+    a: `${lite} is awareness only: player ESP, nest labels, carcass markers and radar hack. ${pro} adds bite assist. ${elite} adds carcass assist, Auto Finish and Appearance Changer.`,
     scopes: ['lite'],
   },
   {
     id: 'which-tier-scripts',
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
-    q: 'Which tier includes Aimbot?',
-    a: `${pro} ships Aimbot, Smooth Aim, Sticky Aim and Hotkey macros. ${elite} includes everything in Pro plus Loot Assist and Auto Finish. ${lite} has no aimbot automation.`,
+    q: 'Which tier includes Bite Assist?',
+    a: `${pro} ships Bite Assist, Smooth Bite, Sticky Target and Hotkey macros. ${elite} includes everything in Pro plus Carcass Assist and Auto Finish. ${lite} has no bite assist automation.`,
     scopes: ['pro'],
   },
   {
@@ -118,7 +118,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do you rank Lite vs Pro vs Elite?',
-    a: `Map awareness only → ${lite}. Ranked gunfights with aimbot → ${pro}. Full bot suite and priority patches → ${elite}. Compare on each cheat page or the ${faqPage}.`,
+    a: `Map awareness only → ${lite}. Official gunfights with bite assist → ${pro}. Full bot suite and priority patches → ${elite}. Compare on each cheat page or the ${faqPage}.`,
   },
   {
     id: 'elite-slots',
@@ -139,22 +139,22 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'undetected',
     topic: 'safety',
     icon: 'faqUndetected',
-    q: 'Are undetected Fortnite cheats guaranteed?',
+    q: 'Are undetected The Isle cheats guaranteed?',
     a: a('No. Undetected is current status on the product page—not a permanent guarantee. Stop if the build shows updating, testing, or detected.'),
   },
   {
     id: 'esp-safer',
     topic: 'safety',
     icon: 'faqEspSafer',
-    q: 'Is ESP wallhack safer than aimbot?',
-    a: a('ESP is quieter in replay than obvious bot patterns, but it is still a cheat. EAC does not ignore overlays because you left aimbot off.'),
+    q: 'Is ESP wallhack safer than bite assist?',
+    a: a('ESP is quieter in replay than obvious bot patterns, but it is still a cheat. EAC does not ignore overlays because you left bite assist off.'),
   },
   {
     id: 'hwid-when',
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need the HWID Spoofer?',
-    a: `Use ${hwid} when fresh Epic accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only EAC cases; see ${ugc} instead.`,
+    a: `Use ${hwid} when fresh Steam accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only EAC cases; see ${ugc} instead.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -162,30 +162,30 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqUgcWhat',
     q: 'What is UGC?',
-    a: `${ugc} (Unban & Governance Control) is an appeal workspace for Epic account restrictions and EAC bans—custom workflows and case tracking, not a guaranteed unban service.`,
+    a: `${ugc} (Unban & Governance Control) is an appeal workspace for Steam account restrictions and EAC bans—custom workflows and case tracking, not a guaranteed unban service.`,
     scopes: ['ugc'],
   },
   {
     id: 'skin-changer',
     topic: 'products',
     icon: 'faqSkinChanger',
-    q: 'Does Skin Changer modify my Epic locker?',
+    q: 'Does Appearance Changer modify my Epic locker?',
     a: `${skin} previews cosmetics locally on your client. Other players see your real inventory. Included with ${elite}; available standalone for cosmetic preview only.`,
-    scopes: ['unlock-all'],
+    scopes: ['unlock-skins'],
   },
   {
     id: 'external-loader',
     topic: 'products',
     icon: 'faqExternalLoader',
-    q: 'Is the loader injected into the Epic Games folder?',
-    a: `Fortnite Cheats runs external with cloud config sync—no files injected into the Fortnite directory. EAC risk still applies. See ${productsHub}.`,
+    q: 'Is the loader injected into the Steam folder?',
+    a: `The Isle Cheats runs external with cloud config sync—no files injected into the The Isle directory. EAC risk still applies. See ${productsHub}.`,
   },
   {
     id: 'blog-vs-cheats',
     topic: 'blog',
     icon: 'faqBlogVsCheats',
-    q: 'Are blog cheat codes the same as ranked cheats?',
-    a: `No. Blog articles about Epic console commands apply only in custom lobbies with cheats enabled. Ranked fortnite cheats are separate products—see ${lite}, ${pro} and ${elite}.`,
+    q: 'Are practice guides the same as Official private cheats?',
+    a: `No. Blog articles about Epic console commands apply only in custom lobbies with cheats enabled. Official the isle cheats are separate products—see ${lite}, ${pro} and ${elite}.`,
   },
   {
     id: 'blog-setup',
@@ -206,7 +206,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoLite',
     q: 'Who should stay on Lite?',
-    a: `Players who only want map awareness—ESP, chests, loot—and will not touch aimbot automation. If you keep enabling combo aimbot, buy ${pro} instead.`,
+    a: `Players who only want map awareness—ESP, radar, nests and carcasses—and will not touch bite assist. If you keep enabling combat assist, buy ${pro} instead.`,
     scopes: ['lite'],
   },
   {
@@ -214,7 +214,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoPro',
     q: 'Who should buy Pro?',
-    a: `Ranked players who want Aimbot, Smooth Aim and Hotkey macros with ESP wallhack included. Pro is the most popular tier at fortnite-cheats.com.`,
+    a: `Official players who want Bite Assist, Smooth Bite and Hotkey macros with ESP wallhack included. Pro is the most popular tier at theisle-cheats.com.`,
     scopes: ['pro'],
   },
   {
@@ -222,7 +222,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoElite',
     q: 'Who should buy Elite?',
-    a: `Operators who want Loot Assist, Auto Finish, Skin Changer and priority patch delivery when slots are open.`,
+    a: `Operators who want Carcass Assist, Auto Finish, Appearance Changer and priority patch delivery when slots are open.`,
     scopes: ['elite'],
   },
   {
@@ -230,44 +230,86 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'safety',
     icon: 'faqEacUpdate',
     q: 'What should I do after a EAC update?',
-    a: a('Check fortnite-cheats.com status and Discord #status. Do not launch until the banner shows online. Load conservative presets after any patch.'),
+    a: a('Check theisle-cheats.com status and Discord #status. Do not launch until the banner shows online. Load conservative presets after any patch.'),
   },
   {
     id: 'discord-help',
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
-    a: a('Open Discord after purchase with your order email, Windows version and Fortnite client build. Staff walk through loader setup live.'),
+    a: a('Open Discord after purchase with your order email, Windows version and The Isle client build. Staff walk through loader setup live.'),
   },
   {
-    id: 'zero-build-ranked',
+    id: 'legacy-official-modes',
     topic: 'plans',
     icon: 'faqZoomRanked',
-    q: 'Do tiers work in Zero Build and ranked?',
-    a: `Yes—${lite}, ${pro} and ${elite} include Zero Build and ranked presets in the portal. Tune distance caps and script delay before your first queue.`,
+    q: 'Do tiers work in Legacy and Official?',
+    a: `Yes—${lite}, ${pro} and ${elite} include Legacy and Official presets in the portal. Tune distance caps and bite delay before your first queue.`,
   },
   {
     id: 'zoom-hack',
     topic: 'esp',
     icon: 'faqZoomHack',
     q: 'Which tier includes radar hack?',
-    a: `Radar ships on ${lite} and carries through ${pro} and ${elite}. Mini-radar helps zone awareness without guessing rotates.`,
+    a: `Radar ships on ${lite} and carries through ${pro} and ${elite}. Mini-radar helps nest and pack awareness without guessing rotates.`,
     scopes: ['lite'],
   },
   {
     id: 'auto-farm',
     topic: 'scripts',
     icon: 'faqAutoFarm',
-    q: 'Which tier includes Loot Assist?',
-    a: `Loot Assist, Rotation Assist AI and Auto loadout manager are ${elite} only. ${pro} covers combat aimbot without bot farming.`,
+    q: 'Which tier includes Carcass Assist?',
+    a: `Carcass Assist and related Elite extras are ${elite} only. ${pro} covers combat bite assist without carcass automation.`,
     scopes: ['elite'],
+  },
+  {
+    id: 'choose-tier',
+    topic: 'plans',
+    icon: 'faqComparePlans',
+    q: 'How do I choose the right The Isle product tier?',
+    a: `Start with ${lite} for ESP and radar. Move to ${pro} when you need Bite Assist on Official. Choose ${elite} for carcass assist and Appearance Changer. Read ${link('Lite vs Pro', '/blog/theisle-lite-vs-pro/')} before checkout.`,
+  },
+  {
+    id: 'practice-before-official',
+    topic: 'setup',
+    icon: 'faqAfterBuy',
+    q: 'How should I practice bite assist before Official?',
+    a: a('Load a Community or singleplayer practice session with your Official smoothness values. Drill carnivore chase and herbivore defense separately, then queue Official only after tracking looks human.'),
+  },
+  {
+    id: 'external-loader',
+    topic: 'setup',
+    icon: 'faqPlatforms',
+    q: 'What does “external loader” mean?',
+    a: a('An external loader runs outside The Isle process and injects overlay modules after you authenticate. Download it from the portal, never from random Discord DMs.'),
+  },
+  {
+    id: 'appearance-changer-local',
+    topic: 'products',
+    icon: 'faqProductsPage',
+    q: 'Does Appearance Changer change my Steam inventory?',
+    a: `No. ${skin} previews skins and patterns on your client only. It does not alter Steam store purchases.`,
+  },
+  {
+    id: 'stream-proof-check',
+    topic: 'setup',
+    icon: 'faqDiscordHelp',
+    q: 'How do I check whether OBS captures the overlay?',
+    a: a('Enable stream-proof, start an OBS game/window capture, and confirm ESP is visible on your monitor but absent in the preview. Test after every loader update.'),
+  },
+  {
+    id: 'after-hwid-change',
+    topic: 'safety',
+    icon: 'faqBanRisk',
+    q: 'What should I check after changing PCs or hardware?',
+    a: `Use a portal HWID reset or ${hwid} if hardware is flagged. Launch The Isle once without cheats after spoofing, then load the latest build only when status shows online.`,
   },
   {
     id: 'private-cheats',
     topic: 'safety',
     icon: 'faqPrivateCheats',
-    q: 'What are private Fortnite cheats?',
-    a: a('Private means per-user keys and maintained builds—not public zip packs. Fortnite Cheats ships portal delivery for ESP, aimbot and ESP wallhack tiers.'),
+    q: 'What are private The Isle cheats?',
+    a: a('Private means per-user keys and maintained builds—not public zip packs. The Isle Cheats ships portal delivery for ESP, bite assist and ESP wallhack tiers.'),
   },
   {
     id: 'faq-more',
@@ -291,8 +333,8 @@ export function getAllFaqs(): SiteFaqItem[] {
 /** Shared FAQ block copy + filters (home, /faq/, products, blog). */
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'All topics',
-  title: 'Fortnite cheats FAQ',
-  subtitle: 'Filter by cheat plans, ESP wallhack, aimbot, products, setup and guides.',
+  title: 'The Isle cheats FAQ',
+  subtitle: 'Filter by cheat plans, ESP wallhack, bite assist, products, setup and guides.',
 } as const;
 
 export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = [
@@ -309,8 +351,8 @@ export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = [
 /** Section copy when FAQ list is scoped to the current page (not /faq/). */
 export const CONTEXTUAL_FAQ_SECTION_COPY = {
   eyebrow: 'Cheat FAQ',
-  title: 'Fortnite cheats questions',
-  subtitle: 'Straight answers on aimbot, ESP, bans and setup — see the full FAQ for every topic.',
+  title: 'The Isle cheats questions',
+  subtitle: 'Straight answers on bite assist, ESP, bans and setup — see the full FAQ for every topic.',
 } as const;
 
 export function faqFilterTopicsForItems(items: SiteFaqItem[]): FaqTopic[] {
@@ -352,8 +394,8 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-guide-start',
       topic: 'blog',
       icon: 'faqBlogGuideStart',
-      q: 'Should I use console cheat codes in ranked?',
-      a: a('No. Creative lobby cheat codes only work in custom games with cheats enabled. Ranked requires separate fortnite cheats from fortnite-cheats.com tiers.'),
+      q: 'Should I treat practice sessions as Official-ready?',
+      a: a('No. Practice never becomes Official. Private the isle cheats from theisle-cheats.com tiers are a separate product path.'),
     },
     {
       id: 'blog-guide-tier',
@@ -383,7 +425,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogSetupLobby',
       q: 'Should I test in a lobby first?',
-      a: a('Yes. Load conservative presets in a lobby or Zero Build before ranked. Tune script delay and ESP distance caps over several sessions.'),
+      a: a('Yes. Load conservative presets in Community or Legacy before Official. Tune bite delay and ESP distance caps over several sessions.'),
     },
   ],
   Security: [
@@ -417,7 +459,7 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault3',
     q: 'Will settings in this article work next patch?',
-    a: a('Re-check status after every Fortnite update. Portal presets update with patch notes—reload configs instead of copying old sliders.'),
+    a: a('Re-check status after every The Isle update. Portal presets update with patch notes—reload configs instead of copying old sliders.'),
   },
 ];
 
@@ -431,7 +473,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
       q: 'Which tier covers ESP wallhack from this article?',
-      a: `${lite} includes player ESP, chest locator and loot timers. ${pro} adds combat aimbot on the same overlay stack.`,
+      a: `${lite} includes player ESP, nest labels and carcass markers. ${pro} adds combat bite assist on the same overlay stack.`,
     });
   }
   if (slug.includes('script') || slug.includes('combo') || slug.includes('auto-combo')) {
@@ -439,8 +481,8 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       id: 'blog-slug-scripts',
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
-      q: 'Which tier includes the aimbot in this article?',
-      a: `${pro} and ${elite} ship Aimbot and related modules. ${lite} is ESP wallhack only.`,
+      q: 'Which tier includes the bite assist in this article?',
+      a: `${pro} and ${elite} ship Bite Assist and related modules. ${lite} is ESP wallhack only.`,
     });
   }
   if (slug.includes('hwid') || slug.includes('ban') || slug.includes('eac')) {
@@ -463,17 +505,17 @@ export const compareRows = [
   { feature: 'Radar', icon: 'compareZoomHack' as const, lite: true, pro: true, elite: true },
   { feature: 'Streamproof overlay', icon: 'compareStreamproof' as const, lite: true, pro: true, elite: true },
   { feature: 'MiniESP wallhack overlay', icon: 'compareRadarHack' as const, lite: true, pro: true, elite: true },
-  { feature: 'Aimbot', icon: 'compareAutoCombo' as const, lite: false, pro: true, elite: true },
-  { feature: 'Smooth Aim & Sticky Aim', icon: 'compareSmoothAim' as const, lite: false, pro: true, elite: true },
-  { feature: 'Bone Priority', icon: 'compareTargetSelector' as const, lite: false, pro: true, elite: true },
+  { feature: 'Bite Assist', icon: 'compareAutoCombo' as const, lite: false, pro: true, elite: true },
+  { feature: 'Smooth Bite & Sticky Target', icon: 'compareSmoothAim' as const, lite: false, pro: true, elite: true },
+  { feature: 'Hit Priority', icon: 'compareTargetSelector' as const, lite: false, pro: true, elite: true },
   { feature: 'Hotkey macros (heals/shields)', icon: 'compareHotkeyMacros' as const, lite: false, pro: true, elite: true },
   { feature: 'FOV radius drawing', icon: 'compareAbilityRadius' as const, lite: false, pro: true, elite: true },
   { feature: 'Smoke alert integration', icon: 'compareSmokeAlert' as const, lite: false, pro: true, elite: true },
-  { feature: 'Loot Assist', icon: 'compareAutoFarm' as const, lite: false, pro: false, elite: true },
+  { feature: 'Carcass Assist', icon: 'compareAutoFarm' as const, lite: false, pro: false, elite: true },
   { feature: 'Auto Finish', icon: 'compareAutoKillSteal' as const, lite: false, pro: false, elite: true },
-  { feature: 'Auto Shield Break', icon: 'compareAutoShieldBreak' as const, lite: false, pro: false, elite: true },
+  { feature: 'Auto Stamina', icon: 'compareAutoShieldBreak' as const, lite: false, pro: false, elite: true },
   { feature: 'Full ESP wallhack suite', icon: 'compareFullMapHack' as const, lite: false, pro: false, elite: true },
-  { feature: 'Skin Changer (Unlock All)', icon: 'compareSkinChanger' as const, lite: false, pro: false, elite: true },
+  { feature: 'Appearance Changer (Unlock Skins)', icon: 'compareSkinChanger' as const, lite: false, pro: false, elite: true },
   { feature: 'Priority patch queue', icon: 'comparePriorityPatch' as const, lite: false, pro: false, elite: true },
   { feature: 'Direct dev Discord support', icon: 'compareDevSupport' as const, lite: false, pro: false, elite: true },
   { feature: 'Cloud config backup', icon: 'compareCloudBackup' as const, lite: true, pro: true, elite: true },

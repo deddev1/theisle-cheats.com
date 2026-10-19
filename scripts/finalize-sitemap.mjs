@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { resolveDistDir } from './dist-dir.mjs';
 
-const SITE = 'https://fortnite-cheats.com';
+const SITE = 'https://theisle-cheats.com';
 const dist = resolveDistDir();
 
 function loadUrlsetXml(dir) {
@@ -67,12 +67,14 @@ function normalizeUrl(loc) {
     return null;
   }
   if (url.protocol !== 'https:') url.protocol = 'https:';
-  url.hostname = 'fortnite-cheats.com';
+  url.hostname = 'theisle-cheats.com';
   url.hash = '';
   url.search = '';
   let pathname = url.pathname;
   if (!pathname.endsWith('/')) pathname += '/';
   if (pathname.includes('/404') || pathname.startsWith('/go/')) return null;
+  // Index only the forum hub — thread pages are noindex.
+  if (pathname.startsWith('/forum/') && pathname !== '/forum/') return null;
   return `${SITE}${pathname}`;
 }
 

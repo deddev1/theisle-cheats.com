@@ -24,11 +24,11 @@ export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Fortnite Cheats',
+    name: 'The Isle Cheats',
     url: `${SITE_ORIGIN}/`,
     inLanguage: 'en-US',
     description:
-      'Fortnite cheats with aimbot, ESP, and radar hack, Skin Changer and ranked-safe tiers for PC.',
+      'The Isle cheats with bite assist, ESP, and radar hack, Appearance Changer and ranked-safe tiers for PC.',
   };
 }
 
@@ -38,7 +38,7 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Fortnite Cheats',
+    name: 'The Isle Cheats',
     url: `${SITE_ORIGIN}/`,
     logo: `${SITE_ORIGIN}/logo.svg`,
     email: SUPPORT_EMAIL,
@@ -66,7 +66,7 @@ export function collectionPageSchema(input: { name: string; description: string;
     inLanguage: 'en-US',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'Fortnite Cheats',
+      name: 'The Isle Cheats',
       url: `${SITE_ORIGIN}/`,
     },
   };
@@ -82,7 +82,7 @@ export function webPageSchema(input: { name: string; description: string; url: s
     inLanguage: 'en-US',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'Fortnite Cheats',
+      name: 'The Isle Cheats',
       url: `${SITE_ORIGIN}/`,
     },
   };
@@ -131,20 +131,16 @@ export function discussionForumPostingSchema(input: {
     url: canonicalUrl(input.url),
     author: { '@type': 'Person', name: input.author },
     commentCount: input.comments,
-    isPartOf: { '@type': 'CollectionPage', name: 'Fortnite Cheats Forum', url: canonicalUrl('/forum/') },
+    isPartOf: { '@type': 'CollectionPage', name: 'The Isle Cheats Forum', url: canonicalUrl('/forum/') },
   };
-}
-
-function offerUrl(path: string): string {
-  if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  return canonicalUrl(path);
 }
 
 export function productSchema(input: {
   name: string;
   description: string;
   url: string;
-  offerUrl: string;
+  /** Kept for call-site compat; Offer omitted until real prices are available. */
+  offerUrl?: string;
   image?: string;
   sku?: string;
 }) {
@@ -154,21 +150,12 @@ export function productSchema(input: {
     name: input.name,
     description: input.description,
     sku: input.sku ?? input.url.replace(/\//g, '-'),
+    url: canonicalUrl(input.url),
     brand: {
       '@type': 'Brand',
-      name: 'Fortnite Cheats',
+      name: 'The Isle Cheats',
     },
     ...(input.image ? { image: absoluteAssetUrl(input.image) } : {}),
-    offers: {
-      '@type': 'Offer',
-      url: offerUrl(input.offerUrl),
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      seller: {
-        '@type': 'Organization',
-        name: 'Fortnite Cheats',
-      },
-    },
   };
 }
 
@@ -209,11 +196,11 @@ export function articleSchema(input: {
     inLanguage: 'en-US',
     author: {
       '@type': 'Organization',
-      name: 'Fortnite Cheats',
+      name: 'The Isle Cheats',
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Fortnite Cheats',
+      name: 'The Isle Cheats',
       logo: {
         '@type': 'ImageObject',
         url: `${SITE_ORIGIN}/logo.svg`,

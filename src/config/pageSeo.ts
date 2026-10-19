@@ -10,74 +10,84 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Buy Undetected Fortnite Cheats | Aimbot, ESP & Wallhack',
+    title: 'Buy The Isle Cheats | ESP, Radar & Survival Tools',
     description:
-      'Buy undetected Fortnite cheats for PC — aimbot, ESP, wallhack, radar, loot ESP and skin changer. Updated after every Easy Anti-Cheat patch.',
+      'Buy The Isle cheats for PC — player ESP, nest ESP, radar, carcass ESP and appearance changer. Updated after every Easy Anti-Cheat patch.',
   },
-  '/products/fortnite-cheats/': {
-    title: 'Buy Fortnite Cheats | Elite, HWID Spoofer & Skin Changer',
+  '/products/theisle-cheats/': {
+    title: 'Buy The Isle Cheats | Lite, Pro, Elite & Utilities',
     description:
-      'Shop Fortnite cheats for PC: Elite aimbot & ESP wallhack, HWID spoofer, UGC recovery and Skin Changer. Instant delivery after checkout.',
+      'Shop The Isle cheats for PC: Lite ESP & radar, Pro bite assist, Elite full suite, HWID spoofer, UGC and Appearance Changer.',
   },
-  '/products/fortnite-cheats/elite/': {
-    title: 'Buy Fortnite Elite Cheats | Aimbot, ESP & Loot Assist',
+  '/products/theisle-cheats/lite/': {
+    title: 'Buy The Isle Lite Cheats | ESP Wallhack & Radar',
     description:
-      'Buy Fortnite Elite cheats with aimbot, ESP wallhack, loot assist, Auto Finish, Skin Changer and priority EAC patch updates.',
+      'Buy The Isle Lite cheats with player ESP, radar, nest and carcass labels and stream-proof overlays for EVRIMA and Legacy.',
   },
-  '/products/fortnite-cheats/hwid-spoofer/': {
-    title: 'Buy Fortnite HWID Spoofer | Hardware Ban Bypass',
+  '/products/theisle-cheats/pro/': {
+    title: 'Buy The Isle Pro Cheats | Bite Assist + ESP',
     description:
-      'Buy a Fortnite HWID spoofer for PC hardware bans — disk/MAC tools, compatibility scan and post-spoof checks before you launch cheats again.',
+      'Buy The Isle Pro cheats with Bite Assist, Sticky Target, Hit Priority and full Lite ESP wallhack for Official hunting.',
   },
-  '/products/fortnite-cheats/ugc/': {
-    title: 'Buy Fortnite UGC | EAC & Epic Ban Appeal Tools',
+  '/products/theisle-cheats/elite/': {
+    title: 'Buy The Isle Elite Cheats | Bite Assist, ESP & Carcass Assist',
     description:
-      'Buy Fortnite UGC (Unban & Governance Control) to organize Epic and EAC ban appeals, dispute workflows and case tracking.',
+      'Buy The Isle Elite cheats with bite assist, ESP wallhack, carcass assist, Auto Finish, Appearance Changer and priority EAC patch updates.',
   },
-  '/products/fortnite-cheats/unlock-all/': {
-    title: 'Buy Fortnite Skin Changer | Unlock All Cosmetics',
+  '/products/theisle-cheats/hwid-spoofer/': {
+    title: 'Buy The Isle HWID Spoofer | Hardware Ban Bypass',
     description:
-      'Buy Fortnite Skin Changer / Unlock All — local outfit, wrap and pickaxe previews with your Fortnite cheats loadout.',
+      'Buy a The Isle HWID spoofer for PC hardware bans — disk/MAC tools, compatibility scan and post-spoof checks before you launch cheats again.',
   },
-  '/products/fortnite-cheats/utilities/': {
-    title: 'Buy Fortnite Cheat Utilities | HWID, UGC & Skin Changer',
+  '/products/theisle-cheats/ugc/': {
+    title: 'Buy The Isle UGC | EAC & Steam Ban Appeal Tools',
     description:
-      'Buy Fortnite cheat utilities: HWID spoofer after hardware bans, UGC for Epic/EAC appeals, and local Skin Changer / Unlock All.',
+      'Buy The Isle UGC (Unban & Governance Control) to organize Steam and EAC ban appeals, dispute workflows and case tracking.',
+  },
+  '/products/theisle-cheats/unlock-skins/': {
+    title: 'Buy The Isle Appearance Changer | Unlock Skins Cosmetics',
+    description:
+      'Buy The Isle Appearance Changer / Unlock Skins — local skin and pattern previews with your The Isle cheats loadout.',
+  },
+  '/products/theisle-cheats/utilities/': {
+    title: 'Buy The Isle Cheat Utilities | HWID, UGC & Appearance Changer',
+    description:
+      'Buy The Isle cheat utilities: HWID spoofer after hardware bans, UGC for Steam/EAC appeals, and local Appearance Changer / Unlock Skins.',
   },
   '/blog/': {
-    title: 'Fortnite Cheat Guides | Aimbot, ESP Wallhack & EAC',
+    title: 'The Isle Cheat Guides | Bite Assist, ESP Wallhack & EAC',
     description:
-      'Read Fortnite cheat guides on aimbot setup, ESP wallhack, Lite vs Pro, Creative practice and Easy Anti-Cheat patch-day checks.',
+      'Read The Isle cheat guides on bite assist setup, ESP wallhack, Lite vs Pro, singleplayer practice and Easy Anti-Cheat patch-day checks.',
   },
   '/forum/': {
-    title: 'Fortnite Cheats Forum | Aimbot, ESP & Setup Help',
+    title: 'The Isle Cheats Forum | Bite Assist, ESP & Setup Help',
     description:
-      'Fortnite cheats forum for aimbot configs, ESP wallhack setup, EAC status and product questions before you buy.',
+      'The Isle cheats forum for bite assist configs, ESP wallhack setup, EAC status and product questions before you buy.',
   },
   '/faq/': {
-    title: 'Fortnite Cheats FAQ | Aimbot, ESP, Bans & Setup',
+    title: 'The Isle Cheats FAQ | Bite Assist, ESP, Bans & Setup',
     description:
-      'Fortnite cheats FAQ — tiers, aimbot, ESP wallhack, radar, HWID spoofer, Skin Changer, bans and loader setup before checkout.',
+      'The Isle cheats FAQ — tiers, bite assist, ESP wallhack, radar, HWID spoofer, Appearance Changer, bans and loader setup before checkout.',
   },
   '/terms/': {
-    title: 'Terms for Fortnite Cheats | License & Refunds',
+    title: 'Terms for The Isle Cheats | License & Refunds',
     description:
-      'Terms for buying Fortnite cheats on fortnite-cheats.com — license use, delivery, refunds and account risk.',
+      'Terms for buying The Isle cheats on theisle-cheats.com — license use, delivery, refunds and account risk.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | Fortnite Cheats Shop',
+    title: 'Privacy Policy | The Isle Cheats Shop',
     description:
-      'How the Fortnite cheats shop at fortnite-cheats.com uses analytics, cookies and contact data.',
+      'How the The Isle cheats shop at theisle-cheats.com uses analytics, cookies and contact data.',
   },
   '/about/': {
-    title: 'About Fortnite Cheats | Buy PC Aimbot & ESP',
+    title: 'About The Isle Cheats | Buy PC Bite Assist & ESP',
     description:
-      'About Fortnite Cheats — we sell PC Fortnite cheats (aimbot, ESP, wallhack), guides and utilities at fortnite-cheats.com.',
+      'About The Isle Cheats — we sell PC The Isle cheats (bite assist, ESP, wallhack), guides and utilities at theisle-cheats.com.',
   },
   '/support/': {
-    title: 'Fortnite Cheats Support | Loader, HWID & Checkout',
+    title: 'The Isle Cheats Support | Loader, HWID & Checkout',
     description:
-      'Fortnite cheats support for loader setup, aimbot/ESP configs, HWID spoofing and checkout help — 24/7 Discord.',
+      'The Isle cheats support for loader setup, bite assist/ESP configs, HWID spoofing and checkout help — 24/7 Discord.',
   },
 };
 

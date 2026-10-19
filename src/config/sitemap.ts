@@ -40,10 +40,9 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return item;
   }
 
+  // Thin guide-derived threads stay noindex — exclude from sitemap.
   if (path.startsWith('/forum/')) {
-    item.priority = 0.6;
-    item.changefreq = 'weekly';
-    return item;
+    return undefined;
   }
 
   if (path.startsWith('/blog/')) {

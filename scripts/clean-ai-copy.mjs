@@ -12,41 +12,41 @@ const files = [
 ];
 
 const reps = [
-  ['FortniteCheats Editorial', 'Fortnite Cheats'],
-  ['FortniteCheats Community Forum', 'Fortnite Cheats Forum'],
-  ['FortniteCheats Blog', 'Fortnite Cheats Blog'],
-  ['FortniteCheats Support', 'Fortnite Cheats Support'],
-  ['Join FortniteCheats on Discord', 'Join Fortnite Cheats on Discord'],
-  ['FortniteCheats home', 'Fortnite Cheats home'],
-  ['FortniteCheats', 'Fortnite Cheats'],
-  ["TITLE_PREFIX = 'Fortnite Cheats & Hacks'", "TITLE_PREFIX = 'Fortnite Cheats'"],
-  ['humanized Aimbot', 'smooth aimbot'],
+  ['The Isle Cheats Editorial', 'The Isle Cheats'],
+  ['The Isle Cheats Community Forum', 'The Isle Cheats Forum'],
+  ['The Isle Cheats Blog', 'The Isle Cheats Blog'],
+  ['The Isle Cheats Support', 'The Isle Cheats Support'],
+  ['Join The Isle Cheats on Discord', 'Join The Isle Cheats on Discord'],
+  ['The Isle Cheats home', 'The Isle Cheats home'],
+  ['The Isle Cheats', 'The Isle Cheats'],
+  ["TITLE_PREFIX = 'The Isle Cheats & Hacks'", "TITLE_PREFIX = 'The Isle Cheats'"],
+  ['humanized Bite Assist', 'smooth bite assist'],
   ['humanized order', 'smooth order'],
   ['humanized input', 'smooth input'],
   ['humanized', 'smooth'],
   [
-    'Climbing ranked play with fortnite aimbot means smooth aimbot—not instant bot bursts that draw reports.',
-    'Ranked Fortnite aimbot works better with smooth tracking than instant snaps that get you reported.',
+    'Climbing Official play with theisle bite assist means smooth bite assist—not instant bot bursts that draw reports.',
+    'Official The Isle bite assist works better with smooth tracking than instant snaps that get you reported.',
   ],
   [
-    'maintains private fortnite cheats for Windows PC Battle Royale and Zero Build—not console lobby codes. Every module ships through the operator portal with secure checkout, Discord support, and live status banners before patch-day queues.',
-    'sells Fortnite cheats for Windows PC Battle Royale and Zero Build. Check status before you queue after a patch.',
+    'maintains private the isle cheats for Windows PC EVRIMA and Legacy—not console lobby codes. Every module ships through the operator portal with secure checkout, Discord support, and live status banners before patch-day queues.',
+    'sells The Isle cheats for Windows PC EVRIMA and Legacy. Check status before you queue after a patch.',
   ],
   [
-    'maintains private fortnite cheats for Windows PC Battle Royale and Zero Build. Every module ships through the operator portal with secure checkout, Discord support, and live status banners before patch-day queues.',
-    'sells Fortnite cheats for Windows PC Battle Royale and Zero Build. Check status before you queue after a patch.',
+    'maintains private the isle cheats for Windows PC EVRIMA and Legacy. Every module ships through the operator portal with secure checkout, Discord support, and live status banners before patch-day queues.',
+    'sells The Isle cheats for Windows PC EVRIMA and Legacy. Check status before you queue after a patch.',
   ],
   [
-    'maintains private fortnite cheats for Windows PC Battle Royale and Zero Build. Check live status before every patch-day queue.',
-    'sells Fortnite cheats for Windows PC Battle Royale and Zero Build. Check status before you queue after a patch.',
+    'maintains private the isle cheats for Windows PC EVRIMA and Legacy. Check live status before every patch-day queue.',
+    'sells The Isle cheats for Windows PC EVRIMA and Legacy. Check status before you queue after a patch.',
   ],
   [
-    'maintains private fortnite cheats for Windows PC Battle Royale and Zero Build.',
-    'sells Fortnite cheats for Windows PC Battle Royale and Zero Build.',
+    'maintains private the isle cheats for Windows PC EVRIMA and Legacy.',
+    'sells The Isle cheats for Windows PC EVRIMA and Legacy.',
   ],
   [
-    'ships a modular external suite for Windows PC ranked—not lobby cheat codes. Aimbot tracks targets, loot assist clears POIs, ESP wallhack exposes third-parties, and utility tools like Radar Hack and Skin Changer round out the toolkit. This is the complete feature map across',
-    'sells external Fortnite cheats for PC Ranked. Aimbot, loot assist, ESP wallhack, radar and Skin Changer. See',
+    'ships a modular external suite for Windows PC ranked—not lobby cheat codes. Bite Assist tracks targets, carcass assist clears POIs, ESP wallhack exposes third-parties, and utility tools like Radar Hack and Appearance Changer round out the toolkit. This is the complete feature map across',
+    'sells external The Isle cheats for PC Official. Bite Assist, carcass assist, ESP wallhack, radar and Appearance Changer. See',
   ],
 ];
 

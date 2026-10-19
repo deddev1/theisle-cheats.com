@@ -1,128 +1,95 @@
 /**
- * Copy user cheat screenshots (long Windows paths) into public/images,
- * then write SEO-named PNGs for gameplay + blog.
+ * Import The Isle cheat screenshots from Cursor assets.
+ * Run: node scripts/import-user-gameplay.mjs && npm.cmd run optimize:images
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
 
 const assetsDir =
-  'C:\\Users\\3Tee System\\.cursor\\projects\\c-Users-3Tee-System-Downloads-fortnite-cheats-com-main\\assets';
+  'C:\\Users\\3Tee System\\.cursor\\projects\\c-Users-3Tee-System-Downloads-theisle-cheats-com-main\\assets';
 const importDir = path.resolve('_import');
 const gameplayDir = path.resolve('public/images/gameplay');
 const blogDir = path.resolve('public/images/blog');
+const imagesDir = path.resolve('public/images');
 
-/** Skip Valorant screenshot only. */
-const SKIP_SUBSTRINGS = ['065800-cb09d0b5'];
+const SOURCE_ORDER = ['isle_1-', 'isle_2-', 'isle_3-', 'crishacker_', 'Venom_TH_', 'MChad_'];
 
 const GAMEPLAY = [
-  { file: 'fortnite-esp-wallhack.png', alt: 'Fortnite ESP wallhack cheat gameplay with player boxes distance tags and aimbot FOV' },
-  { file: 'fortnite-aimbot-combat.png', alt: 'Fortnite aimbot cheat gameplay with FOV circle and green skeleton ESP on enemy' },
-  { file: 'fortnite-player-esp.png', alt: 'Fortnite player ESP wallhack showing skeletons boxes and distance meters' },
-  { file: 'fortnite-radar-hack.png', alt: 'Fortnite radar and ESP overlay with enemy name tags health and range markers' },
-  { file: 'fortnite-auto-aim.png', alt: 'Fortnite sniper aimbot cheat with green ESP box weapon label and FOV circle' },
-  { file: 'fortnite-loot-radar.png', alt: 'Fortnite loot and chest ESP gameplay with enemy boxes and distance trackers' },
-  { file: 'fortnite-skin-changer.png', alt: 'Fortnite cheat gameplay with chams skeleton ESP and aim lock on pier' },
-  { file: 'fortnite-thermal-esp.png', alt: 'Fortnite thermal vision ESP showing skeleton wallhack HP and distance' },
-  { file: 'fortnite-build-fight-esp.png', alt: 'Fortnite build fight ESP wallhack with names HP bars and FOV circle' },
-  { file: 'fortnite-arena-wallhack.png', alt: 'Fortnite arena wallhack ESP with wireframe players and weapon tags' },
-  { file: 'fortnite-spawn-island-esp.png', alt: 'Fortnite spawn island ESP with skeleton boxes and aimbot reticle' },
-  { file: 'fortnite-long-range-esp.png', alt: 'Fortnite long range ESP wallhack with enemy names health and weapons' },
-  { file: 'fortnite-aimbot-lock.png', alt: 'Fortnite aimbot lock with green skeleton ESP FOV circle and head priority' },
-  { file: 'fortnite-chams-esp.png', alt: 'Fortnite chams and skeleton ESP cheat on wooden pier' },
-  { file: 'fortnite-squad-esp.png', alt: 'Fortnite multi-player ESP wallhack with boxes skeletons and distances' },
-  { file: 'fortnite-combat-esp.png', alt: 'Fortnite combat ESP and aimbot overlay in open field fight' },
+  { file: 'theisle-esp-wallhack.png', alt: 'The Isle ESP wallhack with entity menu, snaplines, dinosaur names, growth and food labels through tall grass', srcIndex: 0 },
+  { file: 'theisle-aimbot-combat.png', alt: 'The Isle bite assist and skeleton ESP targeting Tyrannosaurus Rexes with health bars and aim reticle in a forest', srcIndex: 4 },
+  { file: 'theisle-player-esp.png', alt: 'The Isle player ESP showing dinosaur species, weight, growth percent and health through jungle foliage', srcIndex: 2 },
+  { file: 'theisle-radar-hack.png', alt: 'The Isle radar minimap and world ESP highlighting corpses, fruits, herbs and water with distance markers', srcIndex: 1 },
+  { file: 'theisle-auto-aim.png', alt: 'The Isle aim assist FOV circle locked on a dinosaur with red skeleton ESP and distance readout', srcIndex: 4 },
+  { file: 'theisle-loot-radar.png', alt: 'The Isle carcass and food ESP labels for coconut, mango, herbs and fresh corpses through grass', srcIndex: 0 },
+  { file: 'theisle-skin-changer.png', alt: 'The Isle cheat overlay with ESP boxes and dinosaur stats while hunting in a sunlit forest clearing', srcIndex: 4 },
+  { file: 'theisle-thermal-esp.png', alt: 'The Isle night ESP with no-fog view showing dinosaur weight, growth and player names in tall grass', srcIndex: 2 },
+  { file: 'theisle-territory-esp.png', alt: 'The Isle territory ESP with snaplines to distant players, plants and food through dense jungle trees', srcIndex: 3 },
+  { file: 'theisle-arena-wallhack.png', alt: 'The Isle wallhack ESP with wireframe dinosaurs, vital bars and silent aim reticle on a T-Rex', srcIndex: 4 },
+  { file: 'theisle-spawn-island-esp.png', alt: 'The Isle spawn-area ESP with entity toggles for health bars, names, growth and classname labels', srcIndex: 0 },
+  { file: 'theisle-long-range-esp.png', alt: 'The Isle long-range ESP snaplines marking players and resources hundreds of meters through the jungle', srcIndex: 3 },
+  { file: 'theisle-aimbot-lock.png', alt: 'The Isle bite assist lock with FOV circle and ESP tags on nearby dinosaurs and AI creatures', srcIndex: 1 },
+  { file: 'theisle-chams-esp.png', alt: 'The Isle chams-style ESP highlighting dinosaurs and AI with weight and growth readouts at night', srcIndex: 2 },
+  { file: 'theisle-squad-esp.png', alt: 'The Isle multi-entity ESP with snaplines to players, AI dinosaurs and plants across a jungle clearing', srcIndex: 3 },
+  { file: 'theisle-combat-esp.png', alt: 'The Isle combat ESP and aim assist facing multiple Tyrannosaurus with skeleton overlays and vital bars', srcIndex: 4 },
 ];
 
 const BLOG = [
-  'fortnite-cheat-codes-guide.png',
-  'fortnite-console-cheats-tips.png',
-  'how-to-use-fortnite-cheat-codes.png',
-  'fortnite-cheats-features-guide.png',
-  'fortnite-console-commands-cheats.png',
-  'fortnite-lite-vs-pro.png',
-  'fortnite-elite-tier-guide.png',
-  'fortnite-aimbot-ranked-guide.png',
-  'fortnite-esp-wallhack-setup.png',
-  'fortnite-radar-hack-guide.png',
-  'fortnite-skin-changer-guide.png',
-  'eac-patch-day-checklist.png',
-  'fortnite-hwid-spoofer-after-ban.png',
-  'how-to-buy-fortnite-cheats-2026.png',
-  'fortnite-aimbot-combat-guide.png',
-  'eac-bypass-fortnite-guide.png',
-  'fortnite-external-cheat-guide.png',
-  'fortnite-stream-proof-setup.png',
+  'theisle-practice-before-official.png', 'theisle-practice-bite-assist-esp.png', 'theisle-practice-safely.png',
+  'theisle-cheats-features-guide.png', 'theisle-practice-vs-official.png', 'theisle-lite-vs-pro.png',
+  'theisle-elite-tier-guide.png', 'theisle-bite-assist-official.png', 'theisle-esp-wallhack-setup.png',
+  'theisle-radar-hack-guide.png', 'theisle-appearance-changer-guide.png', 'eac-patch-day-checklist.png',
+  'theisle-hwid-spoofer-after-ban.png', 'how-to-buy-theisle-cheats-2026.png', 'theisle-bite-assist-combat.png',
+  'eac-bypass-theisle-guide.png', 'theisle-external-cheat-guide.png', 'theisle-stream-proof-setup.png',
 ];
 
 function longPath(p) {
   const resolved = path.resolve(p);
-  if (resolved.startsWith('\\\\?\\')) return resolved;
-  return `\\\\?\\${resolved}`;
+  return resolved.startsWith('\\\\?\\') ? resolved : `\\\\?\\${resolved}`;
 }
 
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true });
-}
+function ensureDir(dir) { fs.mkdirSync(dir, { recursive: true }); }
 
-function listAssetPngs() {
-  const entries = fs.readdirSync(longPath(assetsDir));
-  return entries
-    .filter((f) => f.toLowerCase().endsWith('.png'))
-    .filter((f) => !SKIP_SUBSTRINGS.some((s) => f.includes(s)))
-    .sort();
+function listAssetImages() {
+  const images = fs.readdirSync(longPath(assetsDir)).filter((f) => /\.(png|webp|jpe?g)$/i.test(f));
+  const ordered = [];
+  for (const key of SOURCE_ORDER) {
+    const match = images.find((f) => f.includes(key));
+    if (match && !ordered.includes(match)) ordered.push(match);
+  }
+  for (const f of images.sort()) if (!ordered.includes(f)) ordered.push(f);
+  return ordered;
 }
 
 async function writeResizedPng(src, dest) {
-  const buf = await sharp(src)
-    .rotate()
-    .resize({ width: 1600, withoutEnlargement: true })
-    .png({ compressionLevel: 8 })
-    .toBuffer();
+  const buf = await sharp(src).rotate().resize({ width: 1600, withoutEnlargement: true }).png({ compressionLevel: 8 }).toBuffer();
   fs.writeFileSync(dest, buf);
-  console.log('wrote', path.relative(process.cwd(), dest), buf.length);
+  console.log('wrote', path.relative(process.cwd(), dest));
 }
 
-ensureDir(importDir);
-ensureDir(gameplayDir);
-ensureDir(blogDir);
+ensureDir(importDir); ensureDir(gameplayDir); ensureDir(blogDir);
 
-const sources = listAssetPngs();
+const sources = listAssetImages();
 console.log(`Found ${sources.length} source screenshots`);
+if (!sources.length) { console.error('No screenshots'); process.exit(1); }
 
 const shortFiles = [];
 for (let i = 0; i < sources.length; i++) {
   const name = sources[i];
-  const short = `shot-${String(i + 1).padStart(2, '0')}.png`;
-  const from = longPath(path.join(assetsDir, name));
+  const short = `shot-${String(i + 1).padStart(2, '0')}${path.extname(name).toLowerCase()}`;
   const to = path.join(importDir, short);
-  fs.copyFileSync(from, to);
+  fs.copyFileSync(longPath(path.join(assetsDir, name)), to);
   shortFiles.push(to);
-  console.log('copied', short, '←', name.slice(-40));
-}
-
-if (!shortFiles.length) {
-  console.error('No screenshots copied.');
-  process.exit(1);
 }
 
 const alts = [];
-for (let i = 0; i < GAMEPLAY.length; i++) {
-  const src = shortFiles[i % shortFiles.length];
-  const dest = path.join(gameplayDir, GAMEPLAY[i].file);
-  await writeResizedPng(src, dest);
-  alts.push({ file: GAMEPLAY[i].file, alt: GAMEPLAY[i].alt, srcIndex: i % shortFiles.length });
+for (const item of GAMEPLAY) {
+  await writeResizedPng(shortFiles[item.srcIndex % shortFiles.length], path.join(gameplayDir, item.file));
+  alts.push({ file: item.file, alt: item.alt, srcIndex: item.srcIndex % shortFiles.length });
 }
-
 for (let i = 0; i < BLOG.length; i++) {
-  // Offset so blog covers prefer different frames than gameplay slots when possible
-  const src = shortFiles[(i + 3) % shortFiles.length];
-  await writeResizedPng(src, path.join(blogDir, BLOG[i]));
+  await writeResizedPng(shortFiles[(i + 1) % shortFiles.length], path.join(blogDir, BLOG[i]));
 }
 
-fs.writeFileSync(
-  path.join(process.cwd(), 'scripts', 'gameplay-image-alts.json'),
-  JSON.stringify({ gameplay: alts, sourceCount: shortFiles.length }, null, 2),
-);
-
-console.log('Done. Next: npm run optimize:images');
+fs.writeFileSync(path.join(process.cwd(), 'scripts', 'gameplay-image-alts.json'), JSON.stringify({ gameplay: alts, sourceCount: shortFiles.length }, null, 2));
+console.log('Done. Next: npm.cmd run optimize:images');

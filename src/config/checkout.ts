@@ -9,7 +9,7 @@ export type CheckoutProduct = keyof typeof CHECKOUT;
 
 /** URL slug for /go/[slug]/ checkout redirect pages. */
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
-  fortnite: 'fortnite',
+  theisle: 'theisle',
   skinChanger: 'skin-changer',
   hwidSpoofer: 'hwid-spoofer',
   ugc: 'ugc',
@@ -20,16 +20,17 @@ export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
 ) as Record<string, CheckoutProduct>;
 
 /** Internal checkout path shown to users (hides external URL on hover). */
-export function checkoutPath(product: CheckoutProduct = 'fortnite'): string {
+export function checkoutPath(product: CheckoutProduct = 'theisle'): string {
   return `/go/${CHECKOUT_SLUGS[product]}/`;
 }
 
 /** Default product checkout redirect (replaces legacy Discord CTAs). */
-export const PRIMARY_CHECKOUT_PATH = checkoutPath('fortnite');
+export const PRIMARY_CHECKOUT_PATH = checkoutPath('theisle');
 
 /** Map internal product slugs to checkout redirect paths. */
 export function checkoutForSlug(slug: string): string {
   switch (slug) {
+    case 'unlock-skins':
     case 'unlock-all':
       return checkoutPath('skinChanger');
     case 'hwid-spoofer':
@@ -41,7 +42,7 @@ export function checkoutForSlug(slug: string): string {
     case 'pro':
     case 'elite':
     default:
-      return checkoutPath('fortnite');
+      return checkoutPath('theisle');
   }
 }
 
@@ -59,7 +60,7 @@ export function resolveCheckoutHref(href: string): string {
 
   // Legacy / encoded product paths → internal checkout
   if (href.includes('%2Fproducts%2Fcloud-dma') || href.includes('/products/cloud-dma')) {
-    return checkoutPath('fortnite');
+    return checkoutPath('theisle');
   }
   if (href.includes('%2Fproducts%2Fskin-changer') || href.includes('/products/skin-changer')) {
     return checkoutPath('skinChanger');
@@ -70,8 +71,8 @@ export function resolveCheckoutHref(href: string): string {
   if (href.includes('%2Fproducts%2Fugc') || href.includes('/products/ugc')) {
     return checkoutPath('ugc');
   }
-  if (href.includes('%2Fproducts%2Ffortnite') || href.includes('/products/fortnite')) {
-    return checkoutPath('fortnite');
+  if (href.includes('%2Fthe-isle-novaxware-cheats') || href.includes('/products/theisle')) {
+    return checkoutPath('theisle');
   }
 
   return href;

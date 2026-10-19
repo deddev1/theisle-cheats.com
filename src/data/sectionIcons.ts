@@ -1,15 +1,17 @@
 import type { IconName } from '../components/icons/types';
 
 export const featureIcons: Record<string, IconName> = {
-  Scripts: 'stepCrosshair',
-  'ESP Wallhack / ESP': 'featureEsp',
-  'Radar & Loot': 'featureRadar',
-  'Aimbot': 'featureAimbot',
-  'Utility Suite': 'featureUtilitySuite',
-  'Loot Assist': 'compareAutoFarm',
+  'Bite Assist': 'featureBiteAssist',
+  'ESP / Wallhack': 'featureEsp',
+  Radar: 'featureRadar',
+  'Loot / Nest ESP': 'compareZoomHack',
+  'Appearance Changer': 'featureUtilitySuite',
   'Stream Proof': 'streamProof',
+  'Cloud Config & EAC Updates': 'compareCloudBackup',
+  'Game modes': 'toolkitProfiles',
+  'Extra tools': 'compareAutoFarm',
+  'Carcass Assist': 'compareAutoFarm',
   'Radar Hack': 'compareZoomHack',
-  'Cloud Config & Updates': 'compareCloudBackup',
 };
 
 export const whyUsIcons: IconName[] = ['whyShield', 'whyUsers', 'whyMonitor', 'whyHeadphones'];
@@ -50,13 +52,13 @@ export const heroStatusPills: { icon: IconName; label: string }[] = [
   { icon: 'softAim', label: 'Soft Aim Ready' },
   { icon: 'noRecoil', label: 'No Recoil' },
   { icon: 'streamProof', label: 'Stream Proof' },
-  { icon: 'lootEsp', label: 'Loot ESP' },
+  { icon: 'lootEsp', label: 'Carcass ESP' },
   { icon: 'skeletonEsp', label: 'Skeleton ESP' },
   { icon: 'uavRadar', label: 'UAV Radar' },
   { icon: 'mapHack', label: 'ESP Wallhack' },
   { icon: 'support247', label: '24/7 Support' },
   { icon: 'instantDelivery', label: 'Instant Delivery' },
-  { icon: 'rankedSafe', label: 'Ranked Safe' },
+  { icon: 'rankedSafe', label: 'Official Safe' },
   { icon: 'triggerBot', label: 'Trigger Bot' },
   { icon: 'boneSelect', label: 'Bone Select' },
   { icon: 'liveStatus', label: 'Live Status' },
@@ -98,7 +100,7 @@ export const productAcquisitionStepIcons: IconName[] = [
 /** Product detail requirement tiles — prefer compat-style icons where mapped */
 export const productRequirementIcons: Partial<Record<IconName, IconName>> = {
   reqWindows: 'compatWindows',
-  reqEpic: 'compatEpic',
+  reqSteam: 'compatSteam',
   reqSettings: 'compatPackage',
   reqWifi: 'compatWifi',
   reqCpu: 'compatMonitor',
@@ -116,7 +118,7 @@ export function requirementDisplayIcon(icon: IconName): IconName {
 export const compatibilityIcons: IconName[] = [
   'compatWindows',
   'compatPackage',
-  'compatEpic',
+  'compatSteam',
   'compatMonitor',
   'compatRefresh',
   'compatWifi',

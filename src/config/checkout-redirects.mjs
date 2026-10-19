@@ -1,15 +1,17 @@
 /** Checkout destinations keyed by internal product id (no affiliate codes). */
 export const CHECKOUT_URLS = {
-  fortnite: 'https://zadeyo.com/go/QRH?to=%2Fproducts%2Ffortnite',
-  skinChanger: 'https://zadeyo.com/products/skin-changer',
-  hwidSpoofer: 'https://zadeyo.com/products/hwid-spoofer',
-  ugc: 'https://zadeyo.com/products/ugc',
+  theisle: 'https://levocheats.com/go/QRH?to=%2Fthe-isle-novaxware-cheats',
+  skinChanger: 'https://levocheats.com/go/QRH?to=%2Fthe-isle-novaxware-cheats',
+  hwidSpoofer: 'https://levocheats.com/go/QRH?to=%2Fhwid-spoofer',
+  ugc: 'https://levocheats.com/go/QRH?to=%2Fthe-isle-novaxware-cheats',
 };
 
 /** Checkout paths → external product URLs (used by Node serve + Astro middleware). */
 export const CHECKOUT_PATH_REDIRECTS = new Map([
-  ['/go/fortnite', CHECKOUT_URLS.fortnite],
-  ['/go/fortnite/', CHECKOUT_URLS.fortnite],
+  ['/go/theisle', CHECKOUT_URLS.theisle],
+  ['/go/theisle/', CHECKOUT_URLS.theisle],
+  ['/go/fortnite', CHECKOUT_URLS.theisle],
+  ['/go/fortnite/', CHECKOUT_URLS.theisle],
   ['/go/skin-changer', CHECKOUT_URLS.skinChanger],
   ['/go/skin-changer/', CHECKOUT_URLS.skinChanger],
   ['/go/hwid-spoofer', CHECKOUT_URLS.hwidSpoofer],
